@@ -26,7 +26,7 @@ COPY --from=sk-build /usr/src/app/package-lock.json /usr/src/app/package-lock.js
 
 RUN npm ci --only=production
 
-COPY --from=sk-build /usr/src/app/build /usr/src/app/build
+COPY --from=sk-build /usr/src/app/dist /usr/src/app/dist
 
 EXPOSE 3000
 CMD ["static", "dist/index.html"]
