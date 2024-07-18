@@ -1,7 +1,20 @@
 <script>
+    import { onMount } from 'svelte';
+    import bgDesktop from '../assets/bg-desktop.png'
+    import bgMobile from '../assets/bg-mobile.png'
+
+    let bgUrl
+
+    onMount(()=>{
+        if(window.innerWidth > 767) {
+            bgUrl = bgDesktop
+        } else {
+            bgUrl = bgMobile
+        }
+    })
 </script>
 
-<section class="hero-section --margin-bottom">
+<section class="hero-section --margin-bottom" style="background-image: url({bgUrl});">
     <div class="container">
         <div class="hero">
             <h1 class="--text-xxl">RESTORACIA<br />DESIGN</h1>
@@ -15,7 +28,6 @@
 <style lang="scss">
     .hero {
         &-section {
-            background-image: url("src/assets/bg-desktop.png");
             background-position: top center;
             background-repeat: no-repeat;
             background-size: cover;
