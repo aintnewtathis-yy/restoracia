@@ -1,19 +1,18 @@
-FROM node:18-alpine AS sk-build
+# Build stage
+FROM node:18-alpine AS build-stage
 WORKDIR /usr/src/app
 
 ARG TZ=Europe/Moscow
-ARG PUBLIC_HELLO
 
 COPY . /usr/src/app
 RUN apk --no-cache add curl tzdata
 RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN rm -rf node_modules package-lock.json
-
+# Install dependencies and build the app
 RUN npm install
-
 RUN npm run build
 
+# Production stage
 FROM node:18-alpine
 WORKDIR /usr/src/app
 
@@ -21,13 +20,16 @@ ARG TZ=Europe/Moscow
 RUN apk --no-cache add curl tzdata
 RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-COPY --from=sk-build /usr/src/app/package.json /usr/src/app/package.json
-COPY --from=sk-build /usr/src/app/package-lock.json /usr/src/app/package-lock.json
+# Install serve globally to serve static files
+RUN npm install -g serve
 
+# Copy package.json and package-lock.json for npm ci
+COPY --from=build-stage /usr/src/app/package*.json ./
 RUN npm ci --only=production
 
-COPY --from=sk-build /usr/src/app/dist /usr/src/app/dist
+# Copy the built app from the build-stage
+COPY --from=build-stage /usr/src/app/dist /usr/src/app/dist
 
-EXPOSE 3000
-CMD ["static", "dist/index.html"]
+EXPOSE 5000
 
+CMD ["serve", "-s", "dist"]
