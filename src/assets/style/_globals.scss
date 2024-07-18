@@ -1,0 +1,105 @@
+@font-face {
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 500;
+	src: url('../fonts/HelveticaNeueCyr-Medium.ttf') format('ttf');
+	src: url('../fonts/HelveticaNeueCyr-Medium.woff') format('woff');
+}
+@font-face {
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 500;
+	src: url('../fonts/HelveticaNeueCyr-Roman.ttf') format('ttf');
+	src: url('../fonts/HelveticaNeueCyr-Roman.woff') format('woff');
+}
+
+.container {
+	max-width: 1920px;
+	width: 100%;
+	padding-inline: 20px;
+	margin-inline: auto;
+}
+
+* {
+	color: var(--text-color);
+	position: relative;
+	font-family: 'Helvetica';
+	line-height: 125%;
+	letter-spacing: normal;
+	color: #fff;
+
+	@include fluid-text(16, 14);
+}
+html {
+	scrollbar-gutter: stable;
+	height: auto;
+
+	&:has(body.fixed) {
+		@include above-tablet {
+			body{
+				padding-right: var(--scroll-bar);
+			}
+		}
+	}
+}
+
+body {
+	font-family: 'Helvetica';
+	scrollbar-gutter: stable;
+	font-weight: 400;
+	color: #fff;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	background-color: #111111;
+
+	&.fixed {
+		overflow: hidden;
+	}
+
+	@include fluid-text(20, 20);
+}
+
+.button {
+	padding: 12px 24px;
+	border-radius: 30px;
+	width: fit-content;
+	border: 1px solid #fff;
+	color: #fff;
+	text-transform: uppercase;
+
+	@include fluid-text(16, 14);
+
+	@include hover {
+		color: #ffffffc0;
+	}
+
+	@include mobile {
+		padding: 10px 20px ;
+	}
+}
+
+.controls {
+	position: absolute;
+	display: flex;
+	justify-content: space-between;
+	top: 50%;
+	width: 100%;
+	transform: translateY(-50%);
+	pointer-events: none;
+
+	button {
+		pointer-events: ALL;
+		width: 30px;
+		&.hidden {
+			opacity: 0;
+			pointer-events: none;
+		}
+		&:last-child {
+			img {
+				transform: rotate(180deg);
+			}
+		}
+	}
+}
