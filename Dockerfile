@@ -30,3 +30,4 @@ COPY --from=sk-build /usr/src/app/build /usr/src/app/build
 
 EXPOSE 3000
 CMD ["static", "dist/index.html"]
+
