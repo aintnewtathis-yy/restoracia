@@ -42,7 +42,6 @@
                 on:click={(e) => {
                     burgerMenu.classList.toggle("active");
                     burgerIcon.classList.toggle("active");
-                    document.querySelector("body").classList.toggle("fixed");
                 }}
                 class="burger-icon visible-tablet"
                 bind:this={burgerIcon}
