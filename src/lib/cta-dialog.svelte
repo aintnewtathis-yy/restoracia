@@ -1,6 +1,6 @@
 <script>
     import ctaImage from "../assets/cta.png";
-    import close from '../assets/close.svg'
+    import close from "../assets/close.svg";
     let dialog;
     let checked1;
 </script>
@@ -27,9 +27,7 @@
                         <input type="email" name="email" id="email" />
                     </div>
                     <div>
-                        <label for="portfolioLink"
-                            >Ссылка на портфолио</label
-                        >
+                        <label for="portfolioLink">Ссылка на портфолио</label>
                         <input
                             type="text"
                             name="portfolioLink"
@@ -56,8 +54,14 @@
             </div>
         </div>
     </div>
-    <button class="dialog-close" on:click={() => {dialog.close()}}>
-        <img src={close} alt="">
+    <button
+        class="dialog-close"
+        on:click={() => {
+            dialog.close();
+            document.querySelector("body").classList.remove("fixed");
+        }}
+    >
+        <img src={close} alt="" />
     </button>
 </dialog>
 
@@ -74,10 +78,10 @@
                 flex-direction: column;
             }
         }
-        &-image{
+        &-image {
             height: 100%;
 
-            img{
+            img {
                 height: 100%;
             }
         }
@@ -142,15 +146,15 @@
                     }
 
                     a {
-                            &::before {
-                                content: "";
-                                width: 100%;
-                                position: absolute;
-                                top: 102%;
-                                height: 1px;
-                                background-color: #fff;
-                            }
+                        &::before {
+                            content: "";
+                            width: 100%;
+                            position: absolute;
+                            top: 102%;
+                            height: 1px;
+                            background-color: #fff;
                         }
+                    }
                 }
                 button {
                     margin-top: 16px;

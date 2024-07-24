@@ -6,7 +6,7 @@
     import news5 from "../assets/news5.png";
 </script>
 
-<section class="news-section ">
+<section class="news-section" id="news">
     <div class="container">
         <div class="news">
             <h6 class="--text-xxl">События</h6>
@@ -171,16 +171,23 @@
                     }
                 }
                 &-date {
-                    font-size: clamp(10px, calc(18 / 1600 * 100vw), 18px);
+                    font-size: 14px;
+
+                    @media (max-width: 767px) {
+                        font-size: 12px;
+                    }
                 }
                 &-title {
-                    font-size: clamp(16px, calc(22 / 1600 * 100vw), 22px);
+                    font-size: clamp(18px, calc(22 / 1600 * 100vw), 22px);
                     text-transform: uppercase;
                 }
                 &-desc {
-                    font-size: clamp(10px, calc(18 / 1600 * 10vw), 18px);
-                    opacity: 0.6;
-                    letter-spacing: 0.6px;
+                    font-size: 14px;
+
+                    @media (max-width: 767px) {
+                        font-size: 12px;
+                    }
+                    opacity: 0.7;
 
                     display: -webkit-box;
                     -webkit-line-clamp: 2;

@@ -52,7 +52,7 @@
                     <button
                         on:click={() => {
                             if ($index > 0) {
-                                translate += 81;
+                                translate += 82;
                                 $index--;
                             }
                         }}
@@ -64,7 +64,7 @@
                     <button
                         on:click={() => {
                             if ($index < length) {
-                                translate -= 81;
+                                translate -= 82;
                                 $index++;
                             }
                         }}

@@ -4,19 +4,35 @@
     import productCard2 from "../assets/product-card2.png";
     import productCard3 from "../assets/product-card3.png";
     import productCard4 from "../assets/product-card4.png";
-    import close from '../assets/close.svg'
+    import close from "../assets/close.svg";
+    import { dragscroll } from "@svelte-put/dragscroll";
+    import { onMount } from "svelte";
 
-    export let dialog
+    export let dialog;
+    let carousel;
+    let mainImage;
+
+    onMount(() => {
+        carousel.querySelectorAll("img").forEach((img) => {
+            img.addEventListener("click", () => {
+                mainImage.src = img.src;
+            });
+        });
+    });
 </script>
 
-<dialog id="productCard" bind:this={dialog} >
+<dialog id="productCard" bind:this={dialog}>
     <div class="product-dialog-body">
         <div class="product-dialog">
             <div class="product-dialog-gallery">
                 <div class="product-dialog-gallery-main">
-                    <img src={productCard} alt="" />
+                    <img src={productCard} alt="" bind:this={mainImage} />
                 </div>
-                <div class="product-dialog-gallery-carousel">
+                <div
+                    class="product-dialog-gallery-carousel"
+                    bind:this={carousel}
+                    use:dragscroll
+                >
                     <div>
                         <img src={productCard1} alt="" />
                     </div>
@@ -112,13 +128,27 @@
                 </div>
                 <div class="product-dialog-info-buttons">
                     <button class="button">узнать подробнее</button>
-                    <button class="button" on:click={()=>{dialog.close()}}>назад</button>
+                    <button
+                        class="button"
+                        on:click={() => {
+                            dialog.close();
+                            document
+                                .querySelector("body")
+                                .classList.remove("fixed");
+                        }}>назад</button
+                    >
                 </div>
             </div>
         </div>
     </div>
-    <button class="dialog-close" on:click={() => {dialog.close()}}>
-        <img src={close} alt="">
+    <button
+        class="dialog-close"
+        on:click={() => {
+            dialog.close();
+            document.querySelector("body").classList.remove("fixed");
+        }}
+    >
+        <img src={close} alt="" />
     </button>
 </dialog>
 
@@ -132,11 +162,7 @@
         border: none;
         max-width: 1400px;
         width: 100%;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-        &::-webkit-scrollbar {
-            display: none;
-        }
+        overflow: visible;
         padding: 0 40px 0 20px;
         background-color: transparent;
 
@@ -146,12 +172,12 @@
             background-color: #00000073;
         }
 
-        :global(.dialog-close){
+        :global(.dialog-close) {
             position: absolute;
             top: 0;
             right: 0;
             width: 30px;
-            img{
+            img {
                 width: 100%;
             }
         }
@@ -162,6 +188,13 @@
             background-color: #222222;
             padding: 40px 20px;
             border: none;
+            overflow-y: scroll;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            max-height: calc(100vh - 40px);
         }
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -198,6 +231,18 @@
                     flex: 0 0 27%;
                     img {
                         aspect-ratio: 190/180;
+                    }
+
+                    @media (hover: hover) {
+                        &:hover {
+                            opacity: 0.8;
+                        }
+                    }
+
+                    @media (hover: none) {
+                        &:active {
+                            opacity: 0.8;
+                        }
                     }
                 }
             }
@@ -251,10 +296,10 @@
                     }
                 }
             }
-            &-buttons{
+            &-buttons {
                 display: flex;
                 gap: 10px;
-                .button:last-child{
+                .button:last-child {
                     opacity: 0.8;
                 }
                 @media (max-width: 1024px) {

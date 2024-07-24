@@ -11,6 +11,7 @@
     import Header from "./lib/header.svelte";
     import CtaDialog from "./lib/cta-dialog.svelte";
     import ProductModal from "./lib/product-modal.svelte";
+    import ProductGrid from "./lib/product-grid.svelte";
 
     
 </script>
@@ -21,6 +22,7 @@
   <ProductSlider />
   <About />
   <Buro />
+  <ProductGrid />
   <CtaBlock />
   <GallerySlider />
   <Trust />

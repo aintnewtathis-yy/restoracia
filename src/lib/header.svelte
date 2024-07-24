@@ -12,16 +12,16 @@
                 <nav>
                     <ul>
                         <li>
-                            <a href="#">каталог</a>
+                            <a href="#catalog">каталог</a>
                         </li>
                         <li>
-                            <a href="#">дизайн-бюро</a>
+                            <a href="#buro">дизайн-бюро</a>
                         </li>
                         <li>
-                            <a href="#">партнеры</a>
+                            <a href="#partners">партнеры</a>
                         </li>
                         <li>
-                            <a href="#">события</a>
+                            <a href="#news">события</a>
                         </li>
                     </ul>
                 </nav>
@@ -51,22 +51,28 @@
             <nav class="header-menu hidden-tablet">
                 <ul>
                     <li>
-                        <a href="#">каталог</a>
+                        <a href="#catalog">каталог</a>
                     </li>
                     <li>
-                        <a href="#">дизайн-бюро</a>
+                        <a href="#buro">дизайн-бюро</a>
                     </li>
                     <li>
-                        <a href="#">партнеры</a>
+                        <a href="#partners">партнеры</a>
                     </li>
                     <li>
-                        <a href="#">события</a>
+                        <a href="#news">события</a>
                     </li>
                 </ul>
             </nav>
             <div class="header-cta hidden-tablet">
                 <a href="#8 800 100-82-68">8 800 100-82-68</a>
-                <button class="button">начать сотрудничество</button>
+                <button
+                    class="button"
+                    on:click={() => {
+                        document.querySelector("#ctaModal").showModal();
+                        document.querySelector("body").classList.add("fixed");
+                    }}>начать сотрудничество</button
+                >
             </div>
         </div>
     </div>
@@ -182,7 +188,7 @@
             background-color: #111111;
             padding: 100px 20px;
 
-            &:global(.active){
+            &:global(.active) {
                 transform: translate(0);
             }
             nav {

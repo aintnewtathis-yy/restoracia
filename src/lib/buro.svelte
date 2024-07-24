@@ -3,7 +3,7 @@
     import buroMobileImage from "../assets/buro-mobile.png";
 </script>
 
-<section class="buro-section --margin-bottom">
+<section class="buro-section --margin-bottom" id="buro">
     <div class="container">
         <div class="buro">
             <h3 class="--text-xxl">ДИЗАЙН-БЮРО RESTORACIA</h3>
@@ -49,6 +49,7 @@
                     class="button"
                     on:click={() => {
                         document.querySelector("#ctaModal").showModal();
+                        document.querySelector("body").classList.add('fixed');
                     }}
                     >СТАТЬ ПАРТНЕРОМ</button
                 >

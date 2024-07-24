@@ -36,7 +36,7 @@
     });
 </script>
 
-<section class="trust-section --margin-bottom">
+<section class="trust-section --margin-bottom" id="partners">
     <div class="container">
         <div class="trust">
             <div class="trust-info">
@@ -51,6 +51,10 @@
                             class="button"
                             on:click={() => {
                                 document.querySelector("#ctaModal").showModal();
+
+                                document
+                                    .querySelector("body")
+                                    .classList.add("fixed");
                             }}>стать партнером</button
                         >
                     </div>

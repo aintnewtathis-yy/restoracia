@@ -14,5 +14,8 @@
     "sass": "^1.77.8",
     "svelte": "^4.2.18",
     "vite": "^5.3.1"
+  },
+  "dependencies": {
+    "@svelte-put/dragscroll": "^3.0.1"
   }
 }

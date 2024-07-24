@@ -162,6 +162,12 @@
                                 document
                                     .querySelector("#productCard")
                                     .showModal();
+                                document.querySelector(
+                                    "#productCard .product-dialog-body",
+                                ).scrollTop = 0;
+                                document
+                                    .querySelector("body")
+                                    .classList.add("fixed");
                             }}
                         >
                             подробнее
@@ -187,6 +193,12 @@
                                 document
                                     .querySelector("#productCard")
                                     .showModal();
+                                document.querySelector(
+                                    "#productCard .product-dialog-body",
+                                ).scrollTop = 0;
+                                document
+                                    .querySelector("body")
+                                    .classList.add("fixed");
                             }}
                         >
                             подробнее
@@ -212,6 +224,12 @@
                                 document
                                     .querySelector("#productCard")
                                     .showModal();
+                                document.querySelector(
+                                    "#productCard .product-dialog-body",
+                                ).scrollTop = 0;
+                                document
+                                    .querySelector("body")
+                                    .classList.add("fixed");
                             }}
                         >
                             подробнее
@@ -237,6 +255,12 @@
                                 document
                                     .querySelector("#productCard")
                                     .showModal();
+                                document.querySelector(
+                                    "#productCard .product-dialog-body",
+                                ).scrollTop = 0;
+                                document
+                                    .querySelector("body")
+                                    .classList.add("fixed");
                             }}
                         >
                             подробнее

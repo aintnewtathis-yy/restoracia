@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-    import bgDesktop from '../assets/bg-desktop.png'
+    import bgDesktop from '../assets/bg-desktop.webp'
     import bgMobile from '../assets/bg-mobile.png'
 
     let bgUrl
