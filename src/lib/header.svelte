@@ -191,7 +191,7 @@
             &:global(.active) {
                 transform: translate(0);
             }
-            nav {
+            :global(nav) {
                 ul {
                     display: flex;
                     flex-direction: column;
