@@ -4,7 +4,7 @@
     import productCard2 from "../assets/product-card2.png";
     import productCard3 from "../assets/product-card3.png";
     import productCard4 from "../assets/product-card4.png";
-    import close from "../assets/close.svg";
+    import Close from "./utils/close.svelte";
     import { dragscroll } from "@svelte-put/dragscroll";
     import { onMount } from "svelte";
 
@@ -148,7 +148,7 @@
             document.querySelector("body").classList.remove("fixed");
         }}
     >
-        <img src={close} alt="" />
+        <Close />
     </button>
 </dialog>
 
@@ -167,7 +167,10 @@
         background-color: transparent;
 
         outline: none;
-
+@media (max-width: 767px) {
+    
+        padding: 0 20px;
+}
         &::backdrop {
             background-color: #00000073;
         }
@@ -177,8 +180,13 @@
             top: 0;
             right: 0;
             width: 30px;
-            img {
+            svg {
                 width: 100%;
+            }
+
+            @media (max-width: 767px) {
+                right: 30px;
+                top: 0px;
             }
         }
     }
@@ -195,6 +203,10 @@
                 display: none;
             }
             max-height: calc(100vh - 40px);
+
+            @media (max-width: 767px) {
+                padding-top: 60px;
+            }
         }
         display: grid;
         grid-template-columns: 1fr 1fr;

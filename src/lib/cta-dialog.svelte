@@ -1,6 +1,7 @@
 <script>
     import ctaImage from "../assets/cta.png";
     import close from "../assets/close.svg";
+    import Close from "./utils/close.svelte";
     let dialog;
     let checked1;
 </script>
@@ -61,7 +62,7 @@
             document.querySelector("body").classList.remove("fixed");
         }}
     >
-        <img src={close} alt="" />
+        <Close />
     </button>
 </dialog>
 
@@ -76,6 +77,13 @@
             @media (max-width: 1024px) {
                 display: flex;
                 flex-direction: column;
+                max-height: calc(100vh - 40px);
+                overflow: scroll;
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
             }
         }
         &-image {
