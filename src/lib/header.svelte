@@ -27,7 +27,15 @@
                 </nav>
                 <div class="burger-menu-cta">
                     <a href="#8 800 100-82-68">8 800 100-82-68</a>
-                    <button class="button">начать сотрудничество</button>
+                    <button
+                        class="button"
+                        on:click={() => {
+                            document.querySelector("#ctaModal").showModal();
+                            document
+                                .querySelector("body")
+                                .classList.add("fixed");
+                        }}>начать сотрудничество</button
+                    >
                 </div>
             </div>
             <button
