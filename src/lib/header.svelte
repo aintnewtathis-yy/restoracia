@@ -9,7 +9,7 @@
     <div class="container">
         <div class="header">
             <div class="burger-menu visible-tablet" bind:this={burgerMenu}>
-                <nav>
+                <nav class="burger-menu-nav">
                     <ul>
                         <li>
                             <a href="#catalog">каталог</a>
@@ -191,7 +191,7 @@
             &:global(.active) {
                 transform: translate(0);
             }
-            :global(nav) {
+            &-nav {
                 ul {
                     display: flex;
                     flex-direction: column;
